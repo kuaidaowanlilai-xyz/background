@@ -5,13 +5,13 @@
     </div>
     <div class="menu">
       <el-menu
-        :default-active="this.$route.meta.tabsName || 'home'"
+        :default-active="this.$route.name || 'home'"
         class="el-menu-vertical-demo"
         background-color="#04152b"
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item @click="menuItemFun({menuName: '首页', route: 'home'})" index="home">
+        <!-- <el-menu-item @click="menuItemFun({menuName: '首页', route: 'home'})" index="home">
           <i class="el-icon-s-home"></i>
           <span>首页</span>
         </el-menu-item>
@@ -24,7 +24,16 @@
             <i class="iconfont icon-biaodangoujian"></i>
             <span>表单构建</span>
           </el-menu-item>
-        </el-submenu>
+        </el-submenu> -->
+        <el-menu-item
+          v-for="(item,index) in menuData"
+          :key="index"
+          @click="menuItemFun({menuName: item.title, route: item.name})"
+          :index="item.name"
+        >
+          <i :class="item.icon"></i>
+          <span>{{item.title}}</span>
+        </el-menu-item>
       </el-menu>
     </div>
   </div>
@@ -34,39 +43,28 @@ export default {
   data() {
     return {
       //菜单渲染数据
-      menuData: [
-        {
-          menuName: "权限管理"
-        }
-      ]
+      menuData: []
     };
   },
   methods: {
-    //请求数据
-    requestFun() {
-      this.$axios({
-        url: "/menu",
-        method: "get"
-      })
-        .then(res => {
-          // console.log("菜单栏请求数据", res);
-          this.menuData = res.data.data.list;
-        })
-        .catch(err => {
-          console.log("菜单栏请求数据 失败", err);
-        });
+    //处理菜单数据
+    disposeMenu(routesArr) {
+      for(let i = 0; i < routesArr.length; i++){
+        if(this.$routesArr[i].menuShow){
+          this.menuData.push(this.$routesArr[i])
+        }
+      }
     },
     //菜单列表点击
     menuItemFun(item) {
-      // console.log("菜单列表点击", item);
       this.$bus.$emit("busFun", item);
       if (item.route == this.$route.name) return;
       this.$router.push(`/${item.route}`);
     }
   },
   created() {
-    //请求数据
-    // this.requestFun();
+    //处理菜单数据
+    this.disposeMenu(this.$routesArr);
   }
 };
 </script>

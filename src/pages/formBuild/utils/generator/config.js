@@ -15,7 +15,7 @@ export const inputComponents = [
   {
     label: '单行文本',
     tag: 'el-input',
-    tagIcon: 'input',
+    tagIcon: 'iconfont icon-shuruxialakuang',
     placeholder: '请输入',
     defaultValue: undefined,
     span: 24,
@@ -38,7 +38,7 @@ export const inputComponents = [
   {
     label: '多行文本',
     tag: 'el-input',
-    tagIcon: 'textarea',
+    tagIcon: 'iconfont icon-duohangwenbenkuang',
     type: 'textarea',
     placeholder: '请输入',
     defaultValue: undefined,
@@ -61,7 +61,7 @@ export const inputComponents = [
   {
     label: '密码',
     tag: 'el-input',
-    tagIcon: 'password',
+    tagIcon: 'iconfont icon-mima',
     placeholder: '请输入',
     defaultValue: undefined,
     span: 24,
@@ -85,7 +85,7 @@ export const inputComponents = [
   {
     label: '计数器',
     tag: 'el-input-number',
-    tagIcon: 'number',
+    tagIcon: 'iconfont icon-jishuqi',
     placeholder: '',
     defaultValue: undefined,
     span: 24,
@@ -108,7 +108,7 @@ export const selectComponents = [
   {
     label: '下拉选择',
     tag: 'el-select',
-    tagIcon: 'select',
+    tagIcon: 'iconfont icon-xialaxuanze',
     placeholder: '请选择',
     defaultValue: undefined,
     span: 24,
@@ -133,7 +133,7 @@ export const selectComponents = [
   {
     label: '级联选择',
     tag: 'el-cascader',
-    tagIcon: 'cascader',
+    tagIcon: 'iconfont icon-shu',
     placeholder: '请选择',
     defaultValue: [],
     span: 24,
@@ -171,7 +171,7 @@ export const selectComponents = [
   {
     label: '单选框组',
     tag: 'el-radio-group',
-    tagIcon: 'radio',
+    tagIcon: 'iconfont icon-iconfontoptionbutton',
     defaultValue: undefined,
     span: 24,
     labelWidth: null,
@@ -195,7 +195,7 @@ export const selectComponents = [
   {
     label: '多选框组',
     tag: 'el-checkbox-group',
-    tagIcon: 'checkbox',
+    tagIcon: 'iconfont icon-iconfontxuanzekuangyixuan',
     defaultValue: [],
     span: 24,
     labelWidth: null,
@@ -219,7 +219,7 @@ export const selectComponents = [
   {
     label: '开关',
     tag: 'el-switch',
-    tagIcon: 'switch',
+    tagIcon: 'iconfont icon-guanbi',
     defaultValue: false,
     span: 24,
     labelWidth: null,
@@ -239,7 +239,7 @@ export const selectComponents = [
   {
     label: '滑块',
     tag: 'el-slider',
-    tagIcon: 'slider',
+    tagIcon: 'iconfont icon-huakuai',
     defaultValue: null,
     span: 24,
     labelWidth: null,
@@ -257,7 +257,7 @@ export const selectComponents = [
   {
     label: '时间选择',
     tag: 'el-time-picker',
-    tagIcon: 'time',
+    tagIcon: 'iconfont icon-shijianxuanze',
     placeholder: '请选择',
     defaultValue: null,
     span: 24,
@@ -278,7 +278,7 @@ export const selectComponents = [
   {
     label: '时间范围',
     tag: 'el-time-picker',
-    tagIcon: 'time-range',
+    tagIcon: 'iconfont icon-shijianfanwei',
     defaultValue: null,
     span: 24,
     labelWidth: null,
@@ -299,7 +299,7 @@ export const selectComponents = [
   {
     label: '日期选择',
     tag: 'el-date-picker',
-    tagIcon: 'date',
+    tagIcon: 'iconfont icon-yiping',
     placeholder: '请选择',
     defaultValue: null,
     type: 'date',
@@ -319,7 +319,7 @@ export const selectComponents = [
   {
     label: '日期范围',
     tag: 'el-date-picker',
-    tagIcon: 'date-range',
+    tagIcon: 'iconfont icon-riqifanwei',
     defaultValue: null,
     span: 24,
     labelWidth: null,
@@ -341,7 +341,7 @@ export const selectComponents = [
   {
     label: '评分',
     tag: 'el-rate',
-    tagIcon: 'rate',
+    tagIcon: 'iconfont icon-xing',
     defaultValue: 0,
     span: 24,
     labelWidth: null,
@@ -359,7 +359,7 @@ export const selectComponents = [
   {
     label: '颜色选择',
     tag: 'el-color-picker',
-    tagIcon: 'color',
+    tagIcon: 'iconfont icon-yansexuanze',
     defaultValue: null,
     labelWidth: null,
     'show-alpha': false,
@@ -374,7 +374,7 @@ export const selectComponents = [
   {
     label: '上传',
     tag: 'el-upload',
-    tagIcon: 'upload',
+    tagIcon: 'iconfont icon-shangchuan',
     action: 'https://jsonplaceholder.typicode.com/posts/',
     defaultValue: null,
     labelWidth: null,
@@ -398,7 +398,7 @@ export const selectComponents = [
 export const layoutComponents = [
   {
     layout: 'rowFormItem',
-    tagIcon: 'row',
+    tagIcon: 'iconfont icon-hangrongqi',
     type: 'default',
     justify: 'start',
     align: 'top',

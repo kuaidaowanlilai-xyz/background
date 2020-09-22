@@ -69,7 +69,7 @@ export default {
       }
       //监听左侧菜单栏点击事件
       this.$bus.$on("busFun", tabsItem => {
-        console.log("监听左侧菜单栏点击事件", tabsItem);
+        // console.log("监听左侧菜单栏点击事件", tabsItem);
         let itemOff = true;
         this.tabsData.forEach(item => {
           if (item.route == tabsItem.route) {
@@ -84,7 +84,7 @@ export default {
           //本地存一下tabs菜单栏数据
           sessionStorage.setItem("tabsData", JSON.stringify(this.tabsData));
         } else {
-          console.log("tabs菜单已存在此选项卡");
+          // console.log("tabs菜单已存在此选项卡");
         }
       });
     }

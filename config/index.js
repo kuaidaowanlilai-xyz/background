@@ -11,10 +11,10 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/tongyao': {
-        target: 'http://192.168.1.131:8080',
+      '/localhost3000': {
+        target: 'http://localhost:3000',
         pathRewrite: {
-          '^/tongyao': '/'
+          '^/localhost3000': '/'
         },
         changeOrigin: true,
         secure: true

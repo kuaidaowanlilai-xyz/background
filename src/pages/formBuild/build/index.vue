@@ -4,7 +4,8 @@
       <el-scrollbar class="left-scrollbar">
         <div class="components-list">
           <div class="components-title">
-            <svg-icon icon-class="component" />输入型组件
+            <i class="iconfont icon-zujian" />
+            输入型组件
           </div>
           <draggable
             class="components-draggable"
@@ -20,13 +21,14 @@
               @click="addComponent(element)"
             >
               <div class="components-body">
-                <svg-icon :icon-class="element.tagIcon" />
+                <i :class="element.tagIcon" />
                 {{ element.label }}
               </div>
             </div>
           </draggable>
           <div class="components-title">
-            <svg-icon icon-class="component" />选择型组件
+            <i class="iconfont icon-zujian" />
+            选择型组件
           </div>
           <draggable
             class="components-draggable"
@@ -44,13 +46,14 @@
               @click="addComponent(element)"
             >
               <div class="components-body">
-                <svg-icon :icon-class="element.tagIcon" />
+                <i :class="element.tagIcon" />
                 {{ element.label }}
               </div>
             </div>
           </draggable>
           <div class="components-title">
-            <svg-icon icon-class="component" /> 布局型组件
+            <i class="iconfont icon-zujian" />
+            布局型组件
           </div>
           <draggable
             class="components-draggable" :list="layoutComponents"
@@ -62,7 +65,7 @@
               @click="addComponent(element)"
             >
               <div class="components-body">
-                <svg-icon :icon-class="element.tagIcon" />
+                <i :class="element.tagIcon" />
                 {{ element.label }}
               </div>
             </div>
@@ -540,7 +543,7 @@ $lighterBlue: #409EFF;
   font-size: 14px;
   color: #222;
   margin: 6px 2px;
-  .svg-icon{
+  .i{
     color: #666;
     font-size: 18px;
   }
@@ -553,14 +556,14 @@ $lighterBlue: #409EFF;
   cursor: move;
   border: 1px dashed $selectedColor;
   border-radius: 3px;
-  .svg-icon{
+  .i{
     color: #777;
-    font-size: 15px;
+    font-size: 12px;
   }
   &:hover {
     border: 1px dashed #787be8;
     color: #787be8;
-    .svg-icon {
+    .i {
       color: #787be8;
     }
   }

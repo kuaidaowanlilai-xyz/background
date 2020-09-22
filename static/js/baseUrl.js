@@ -1,3 +1,3 @@
 "use strict";
 
-var baseUrl="/tongyao";//请求地址
+var baseUrl="/localhost3000";//请求地址
