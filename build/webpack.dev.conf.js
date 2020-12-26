@@ -81,45 +81,53 @@ module.exports = new Promise((resolve, reject) => {
       // add port to devServer config  //添加端口到devServer配置
       devWebpackConfig.devServer.port = port
       // 获取本机区域网的ip
-      let localIp=os.networkInterfaces()['以太网'][1].address
-      
+      let localIp, 
+        prompt = ''
+      try {
+        localIp=os.networkInterfaces()['以太网'][1].address
+      } catch (error) {
+        console.log('未插入以太网', error)
+        localIp = '*.*.*.*'
+        prompt = '(请检查以太网是否正常插入)'
+      }
+
       // 打印的消息
       let messages
       if(devWebpackConfig.devServer.host == '0.0.0.0'){
         messages = `程序正在运行...\n`+
                     `    - 本地访问： ${chalk.cyan(`http://localhost:${port}`)}\n`+
-                    `    - 局域网访问： ${chalk.cyan(`http://${localIp}:${port}`)}\n`
+                    `    - 局域网访问： ${chalk.cyan(`http://${localIp}:${port}`)}${prompt}\n`
       }else{
         messages = `程序正在运行：${chalk.cyan(`http://${devWebpackConfig.devServer.host}:${port}`)}\n`
       }
       // Add FriendlyErrorsPlugin  //添加FriendlyErrorsPlugin（webpack错误提示插件）
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [ 
-            messages, 
+          messages: [
+            messages,
             `构建生产环境包，请运行 ${chalk.cyan('npm run build')}
-            -  +  +  +  
+            -  +  +  +
             - ┏┓　 ┏┓+ +
             - ┏┛┻━━━┛┻┓ + +
-            - ┃　　　　　　┃ 　
+            - ┃　　　　　　┃
             - ┃　　　━　　 ┃ ++ + + +
             - ████━████  ┃+
             - ┃　　　　　　　┃ +
             - ┃　　　┻　　　┃
             - ┃　　　　　　┃ + +
             - ┗━┓　　　┏━┛
-            - ┃　　　┃　　　　　
-            - ┃　　　┃ + + + +
-            - ┃　　　┃　　　　   神兽保佑,代码无bug
-            - ┃　　　┃ + 　　　　　　
-            - ┃　　　┃
-            - ┃　　　┃　　+　　　　　　　　　
-            - ┃　 　 ┗━━━┓ + +
-            - ┃ 　　　　   ┣┓
-            - ┃ 　　　　　 ┏┛
-            - ┗┓┓┏━┳┓┏┛ + + + +
-            - ┃┫┫ ┃┫┫
-            - ┗┻┛ ┗┻┛+ + + +`
+            -   ┃　　　┃
+            -   ┃　　　┃ + + + +
+            -   ┃　　　┃
+            -   ┃　　　┃ +
+            -   ┃　　　┃
+            -   ┃　　　┃　　+
+            -   ┃　 　 ┗━━━┓ + +
+            -   ┃ 　　　　   ┣┓
+            -   ┃ 　　　　　 ┏┛
+            -   ┗┓┓┏━┳┓┏┛ + + + +
+            -   ┃┫┫ ┃┫┫
+            -   ┗┻┛ ┗┻┛+ + + +`
           ],
         },
         onErrors: config.dev.notifyOnErrors
