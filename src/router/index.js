@@ -54,6 +54,14 @@ let routes = [
     menuShow: true,
     icon: 'iconfont icon-yuyinhecheng'
   },
+  {
+    title: '视频管理',
+    path: '/videoManage',
+    name: 'videoManage',
+    component: resolve => require(['@/pages/videoManage'], resolve),
+    menuShow: true,
+    icon: 'iconfont icon-yuyinhecheng'
+  },
 ]
 
 Vue.prototype.$routesArr = routes
