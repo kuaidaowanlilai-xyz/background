@@ -82,8 +82,8 @@ export default {
   mounted() {
     let constraints = {
       video: {
-        width: 128,
-        height: 72
+        width: 72,
+        height: 128
       },
       audio: false
     }
@@ -110,8 +110,8 @@ export default {
   height: 100%;
   background-color: #fff;
   .video {
-    width: 128px;
-    height: 72px;
+    width: 72px;
+    height: 128px;
     margin: 0 auto;
     display: block;
   }
