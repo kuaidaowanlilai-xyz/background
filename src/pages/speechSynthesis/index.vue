@@ -75,8 +75,8 @@ export default {
     //文案生成
     generatedFun() {
       this.textarea = 
-        `    ${this.mainBody}${this.event}是怎么回事呢？${this.mainBody}相信大家都很熟悉，但是${this.event}是怎么回事呢，下面就让小编带大家一起了解吧。\n`+
-        `    ${this.mainBody}${this.event}，其实就是${this.event}了，那么${this.mainBody}为什么会${this.event}，相信大家都很好奇是怎么回事。\n`+
+        `    ${this.mainBody}${this.event}是怎么回事呢？${this.mainBody}相信大家都很熟悉，但是${this.event}是怎么回事呢，下面就让小编带大家一起了解一下吧。\n`+
+        `    ${this.mainBody}${this.event}，其实就是${this.mainBody}他${this.event}了，那么${this.mainBody}为什么会${this.event}，相信大家都很好奇是怎么回事。\n`+
         `    大家可能会感到很惊讶${this.mainBody}怎么会${this.event}呢？但事实就是这样，小编也感到非常惊讶。\n`+
         `    那么这就是关于${this.mainBody}${this.event}的事情了，大家有没有觉得很神奇呢？\n`+
         `    看了今天的内容，大家有什么想法呢，欢迎在评论区告诉小编一起讨论哦！`
