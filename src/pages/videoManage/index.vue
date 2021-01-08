@@ -17,7 +17,6 @@ export default {
     return {
       MediaRecorder: '',
       videoObj: {
-        i: 0,//正在播放的序列号
         i_2: 0,//写入数据的序列号
         srcArr: [],//视频src数组
         video0: '',
@@ -108,7 +107,7 @@ export default {
 .videoManage {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #ffffff;
   .video {
     width: 72px;
     height: 128px;
