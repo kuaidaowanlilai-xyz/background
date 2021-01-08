@@ -85,7 +85,8 @@ export default {
     requestData() {
       this.videoSrc = ''
       this.$axios({
-        url: "/speechSynthesis",
+        // url: "/speechSynthesis",
+        url: "/voice/synthetic",
         method: "post",
         data: {
           textarea: this.textarea
