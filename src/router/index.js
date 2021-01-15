@@ -62,6 +62,14 @@ let routes = [
     menuShow: true,
     icon: 'iconfont icon-yuyinhecheng'
   },
+  {
+    title: '音乐',
+    path: '/music',
+    name: 'music',
+    component: resolve => require(['@/pages/music'], resolve),
+    menuShow: true,
+    icon: 'iconfont icon-yuyinhecheng'
+  },
 ]
 
 Vue.prototype.$routesArr = routes
