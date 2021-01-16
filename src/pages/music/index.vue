@@ -2,7 +2,7 @@
   <div class="music">
     <div class="left">
       <div class="searchDiv">
-        <el-input placeholder="想听的音乐" v-model="musicName">
+        <el-input placeholder="想听的音乐" v-model="musicName" @keyup.enter.native="searchFun">
           <el-select style="width:120px;" v-model="select" slot="prepend" placeholder="请选择">
             <el-option label="QQ音乐" value="1"></el-option>
             <el-option label="网易云音乐" value="2"></el-option>
@@ -100,38 +100,42 @@ export default {
       this.req.req.param.songmid[0] = row.songmid
       let data = JSON.stringify(this.req)
       this.$axios({
-        //https://u.y.qq.com
-        url: '/qqMusicSingle/cgi-bin/musicu.fcg',
+        url: '/music/singleInfo',
         method: 'get',
         params: {
           data: data
         }
       }).then(res => {
         console.log('下载的单曲信息查询', res)
-        //下载
-        this.$axios({
-          //http://ws.stream.qqmusic.qq.com/amobile.music.tc.qq.com
-          url: `/qqMusicDownload/${res.data.req.data.midurlinfo[0].purl}`,
-          method: 'get',
-          responseType: 'blob',//告诉服务器我们需要的响应格式
-        }).then(res => {
-          console.log('下载', res)
-          let blob = new Blob([res.data], {
-            type: 'audio/mp4',      //将会被放入到blob中的数组内容的MIME类型
-          });
-          let objectUrl = URL.createObjectURL(blob);  //生成一个url
+        this.videoSrc += res.data.req.data.midurlinfo[0].purl
           var downloadElement = document.createElement('a');
-          downloadElement.href = objectUrl;
+          downloadElement.href = this.videoSrc;
           downloadElement.download = row.songname //下载的文件名
           document.body.appendChild(downloadElement);
           downloadElement.click(); //点击下载
-        }).catch(err => {
-          console.log('下载失败', err);
-          this.$message({
-            type: 'error',
-            message: '下载失败,请重试'
-          });
-        })
+        // //下载
+        // this.$axios({
+        //   url: `/music/musicDownload/${res.data.req.data.midurlinfo[0].purl}`,
+        //   method: 'get',
+        //   responseType: 'blob',//告诉服务器我们需要的响应格式
+        // }).then(res => {
+        //   console.log('下载', res)
+        //   let blob = new Blob([res.data], {
+        //     type: 'audio/mp4',      //将会被放入到blob中的数组内容的MIME类型
+        //   });
+        //   let objectUrl = URL.createObjectURL(blob);  //生成一个url
+        //   var downloadElement = document.createElement('a');
+        //   downloadElement.href = objectUrl;
+        //   downloadElement.download = row.songname //下载的文件名
+        //   document.body.appendChild(downloadElement);
+        //   downloadElement.click(); //点击下载
+        // }).catch(err => {
+        //   console.log('下载失败', err);
+        //   this.$message({
+        //     type: 'error',
+        //     message: '下载失败,请重试'
+        //   });
+        // })
       }).catch(err => {
         console.log('下载的单曲信息查询', err);
       })
@@ -139,14 +143,13 @@ export default {
     //搜索函数
     searchFun() {
       this.$axios({
-        //https://c.y.qq.com
-        url: '/qqMusicSearch/soso/fcgi-bin/client_search_cp',
+        url: '/music/queryList',
         method: 'get',
         params: {
           w: this.musicName
         }
       }).then(res => {
-        console.log('qqMusic搜索结果', res)
+        // console.log('qqMusic搜索结果', res)
         //备注：返回的数据是一个类似于方法包裹的字符串，需要截取再解析
         let data = JSON.parse(res.data.slice(9, -1))
         this.listData = data.data.song.list
@@ -160,9 +163,9 @@ export default {
       this.videoDivOff = false
       this.videoSrc = 'http://ws.stream.qqmusic.qq.com/amobile.music.tc.qq.com/'
       let data = JSON.stringify(this.req)
+      console.log('kkkk', row, data)
       this.$axios({
-        //https://u.y.qq.com
-        url: '/qqMusicSingle/cgi-bin/musicu.fcg',
+        url: '/music/singleInfo',
         method: 'get',
         params: {
           data: data

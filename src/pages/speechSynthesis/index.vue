@@ -2,12 +2,12 @@
 <template>
   <div class="speechSynthesis">
     <div
-      style="font-size:16px;"
+      style="font-size:18px;font-weight: bold"
     >
       <span>营销号文案生成器</span>
     </div>
     <div style="width:600px;">
-      <div 
+      <div
         style="margin-top:7px;"
       >
         <el-input
@@ -17,7 +17,7 @@
         </el-input>
         <span>例如：卢本伟</span>
       </div>
-      <div 
+      <div
         style="margin-top:7px;"
       >
       <el-input
@@ -27,7 +27,7 @@
       </el-input>
       <span>例如：开挂</span>
       </div>
-      <div 
+      <div
         style="margin-top:7px;"
       >
       <!-- <el-input
@@ -36,7 +36,7 @@
         clearable>
       </el-input> -->
       </div>
-      <div 
+      <div
         style="margin-top:15px;"
       >
       <el-input
@@ -74,7 +74,7 @@ export default {
   methods: {
     //文案生成
     generatedFun() {
-      this.textarea = 
+      this.textarea =
         `    ${this.mainBody}${this.event}是怎么回事呢？${this.mainBody}相信大家都很熟悉，但是${this.event}是怎么回事呢，下面就让小编带大家一起了解一下吧。\n`+
         `    ${this.mainBody}${this.event}，其实就是${this.mainBody}他${this.event}了，那么${this.mainBody}为什么会${this.event}，相信大家都很好奇是怎么回事。\n`+
         `    大家可能会感到很惊讶${this.mainBody}怎么会${this.event}呢？但事实就是这样，小编也感到非常惊讶。\n`+

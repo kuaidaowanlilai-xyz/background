@@ -13,51 +13,7 @@ body,html,#app{
 // $Brand: #409EFF;
 
 #app{
-    // background: #f9f9f9;
     background: #e2e2e2;
     font-size: 14px;
     color: #404040;
-}
-
-
-//头像图片样式
-.avatar-uploader .el-upload {
-    border: 1px dashed #d9d9d9;
-    border-radius: 6px;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-  }
-  .avatar-uploader .el-upload:hover {
-    border-color: #409EFF;
-  }
-  .avatar-uploader-icon {
-    font-size: 28px;
-    color: #8c939d;
-    width: 178px;
-    height: 178px;
-    line-height: 178px;
-    text-align: center;
-  }
-  .avatar {
-    width: 178px;
-    height: 178px;
-    display: block;
-  }//
-
-//搜索框外框统一样式
-.searchDiv {
-  width: 100%;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 6px rgba(0,0,0,0.1);
-  padding: 10px 15px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  display: flex;
-}//
-
-//列表里的操作按钮样式
-.listBut{
-  padding: 5px  10px;
-  font-size: 12px;
 }
