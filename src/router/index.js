@@ -1,11 +1,3 @@
-/*
- * @Author: 徐hao
- * @Date: 2020-12-17 13:44:22
- * @LastEditTime: 2020-12-18 10:59:04
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \background\src\router\index.js
- */
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
@@ -59,6 +51,14 @@ let routes = [
     path: '/videoManage',
     name: 'videoManage',
     component: resolve => require(['@/pages/videoManage'], resolve),
+    menuShow: true,
+    icon: 'iconfont icon-yuyinhecheng'
+  },
+  {
+    title: '聊天室',
+    path: '/webSocket',
+    name: 'webSocket',
+    component: resolve => require(['@/pages/webSocket'], resolve),
     menuShow: true,
     icon: 'iconfont icon-yuyinhecheng'
   },
