@@ -12,8 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/localhost3000': {
-        // target: 'http://123.56.54.241:23001',
-        target: 'http://localhost:23000',
+        target: 'http://123.56.54.241:23000',
+        // target: 'http://localhost:23000',
         pathRewrite: {
           '^/localhost3000': '/'
         },
@@ -30,7 +30,7 @@ module.exports = {
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    
+
     /**
      * Source Maps
      */
