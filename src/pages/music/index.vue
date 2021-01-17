@@ -107,35 +107,29 @@ export default {
         }
       }).then(res => {
         console.log('下载的单曲信息查询', res)
-        this.videoSrc += res.data.req.data.midurlinfo[0].purl
+        //下载
+        this.$axios({
+          url: `/music/musicDownload/${res.data.req.data.midurlinfo[0].purl}`,
+          method: 'get',
+          responseType: 'blob',//告诉服务器我们需要的响应格式
+        }).then(res => {
+          console.log('下载', res)
+          let blob = new Blob([res.data], {
+            type: 'audio/mp4',      //将会被放入到blob中的数组内容的MIME类型
+          });
+          let objectUrl = URL.createObjectURL(blob);  //生成一个url
           var downloadElement = document.createElement('a');
-          downloadElement.href = this.videoSrc;
+          downloadElement.href = objectUrl;
           downloadElement.download = row.songname //下载的文件名
           document.body.appendChild(downloadElement);
           downloadElement.click(); //点击下载
-        // //下载
-        // this.$axios({
-        //   url: `/music/musicDownload/${res.data.req.data.midurlinfo[0].purl}`,
-        //   method: 'get',
-        //   responseType: 'blob',//告诉服务器我们需要的响应格式
-        // }).then(res => {
-        //   console.log('下载', res)
-        //   let blob = new Blob([res.data], {
-        //     type: 'audio/mp4',      //将会被放入到blob中的数组内容的MIME类型
-        //   });
-        //   let objectUrl = URL.createObjectURL(blob);  //生成一个url
-        //   var downloadElement = document.createElement('a');
-        //   downloadElement.href = objectUrl;
-        //   downloadElement.download = row.songname //下载的文件名
-        //   document.body.appendChild(downloadElement);
-        //   downloadElement.click(); //点击下载
-        // }).catch(err => {
-        //   console.log('下载失败', err);
-        //   this.$message({
-        //     type: 'error',
-        //     message: '下载失败,请重试'
-        //   });
-        // })
+        }).catch(err => {
+          console.log('下载失败', err);
+          this.$message({
+            type: 'error',
+            message: '下载失败,请重试'
+          });
+        })
       }).catch(err => {
         console.log('下载的单曲信息查询', err);
       })
