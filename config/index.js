@@ -12,7 +12,8 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/localhost3000': {
-        target: 'http://123.56.54.241:23001',
+        // target: 'http://123.56.54.241:23001',
+        target: 'http://localhost:23000',
         pathRewrite: {
           '^/localhost3000': '/'
         },
