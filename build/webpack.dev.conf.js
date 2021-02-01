@@ -9,15 +9,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')  //webpack拷贝依赖 
 const HtmlWebpackPlugin = require('html-webpack-plugin')  //https://www.webpackjs.com/plugins/html-webpack-plugin/
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')  //webpack错误提示依赖
 const portfinder = require('portfinder')  //获取端口的依赖
-const chalk= require('chalk')  //改变控制台字及背景颜色的依赖
-const os=require("os")  //用于获取本机在区域网的ip
+const chalk = require('chalk')  //改变控制台字及背景颜色的依赖
+const os = require("os")  //用于获取本机在区域网的ip
+const exec = require('child_process').exec //调用系统命令行的依赖(win) 用于打开浏览器
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
+    rules: utils.styleLoaders({sourceMap: config.dev.cssSourceMap, usePostCSS: true})
   },
   // cheap-module-eval-source-map is faster for development  //cheap-module-eval-source-map的发展速度更快
   devtool: config.dev.devtool,
@@ -27,7 +28,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+        {from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html')},
       ],
     },
     hot: true,
@@ -37,7 +38,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     port: PORT || config.dev.port,
     open: config.dev.autoOpenBrowser,
     overlay: config.dev.errorOverlay
-      ? { warnings: false, errors: true }
+      ? {warnings: false, errors: true}
       : false,
     publicPath: config.dev.assetsPublicPath,
     proxy: config.dev.proxyTable,
@@ -81,24 +82,36 @@ module.exports = new Promise((resolve, reject) => {
       // add port to devServer config  //添加端口到devServer配置
       devWebpackConfig.devServer.port = port
       // 获取本机区域网的ip
-      let localIp, 
+      let localIp,
         prompt = ''
       try {
-        localIp=os.networkInterfaces()['以太网'][1].address
+        localIp = os.networkInterfaces()['以太网'][1].address
       } catch (error) {
         console.log('未插入以太网', error)
         localIp = '*.*.*.*'
         prompt = '(请检查以太网是否正常插入)'
       }
 
+      // 打开浏览器
+      function openBrowser(url = 'http://www.baidu.com') {
+        let cmd = `start ${url}`
+        exec(cmd, function (error, stdout, stderr) {
+          if (error) {
+            console.log(error, stdout, stderr)
+          }
+        })
+      }
+
       // 打印的消息
       let messages
-      if(devWebpackConfig.devServer.host == '0.0.0.0'){
-        messages = `程序正在运行...\n`+
-                    `    - 本地访问： ${chalk.cyan(`http://localhost:${port}`)}\n`+
-                    `    - 局域网访问： ${chalk.cyan(`http://${localIp}:${port}`)}${prompt}\n`
-      }else{
+      if (devWebpackConfig.devServer.host == '0.0.0.0') {
+        messages = `程序正在运行...\n` +
+          `    - 本地访问： ${chalk.cyan(`http://localhost:${port}`)}\n` +
+          `    - 局域网访问： ${chalk.cyan(`http://${localIp}:${port}`)}${prompt}\n`
+        // openBrowser(`http://localhost:${port}`)
+      } else {
         messages = `程序正在运行：${chalk.cyan(`http://${devWebpackConfig.devServer.host}:${port}`)}\n`
+        // openBrowser(`http://${devWebpackConfig.devServer.host}:${port}`)
       }
       // Add FriendlyErrorsPlugin  //添加FriendlyErrorsPlugin（webpack错误提示插件）
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
@@ -131,9 +144,10 @@ module.exports = new Promise((resolve, reject) => {
           ],
         },
         onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+          ? utils.createNotifierCallback()
+          : undefined
       }))
+
       resolve(devWebpackConfig)
     }
   })

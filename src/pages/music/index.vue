@@ -157,7 +157,6 @@ export default {
       this.videoDivOff = false
       this.videoSrc = 'http://ws.stream.qqmusic.qq.com/amobile.music.tc.qq.com/'
       let data = JSON.stringify(this.req)
-      console.log('kkkk', row, data)
       this.$axios({
         url: '/music/singleInfo',
         method: 'get',
