@@ -2,25 +2,258 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>后台管理系统</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            /* 默认怪异盒 */
-            box-sizing: border-box;
-        }
-    </style>
-    <!-- baseUrl -->
-    <script type="text/javascript" src="static/baseUrl.js"></script>
-    <!-- 阿里矢量图，正式投入使用时，要下载到本地使用 -->
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_1902540_hdtbjju6k9h.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>后台管理系统</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      /* 默认怪异盒 */
+      box-sizing: border-box;
+    }
+  </style>
+  <!-- baseUrl -->
+  <script type="text/javascript" src="static/baseUrl.js"></script>
+  <!-- 阿里矢量图，正式投入使用时，要下载到本地使用 -->
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1902540_kc16np4rnin.css">
 </head>
 
 <body>
-    <div id="app"></div>
+<div id="app">
+  <style>
+    html,
+    body,
+    #app {
+      height: 100%;
+    }
+
+    #app {
+      background: #e2e2e2;
+      font-size: 14px;
+      color: #404040
+    }
+
+    #app .gjp-leftDiv {
+      width: 220px;
+      height: 100%;
+      float: left
+    }
+
+    .gjp-leftMenu {
+      width: 100%;
+      height: 100%;
+      background-color: #04152b
+    }
+
+    .gjp-leftMenu .gjp-logo {
+      width: 100%;
+      height: 70px;
+      background-color: #183863;
+      color: #fff;
+      font-size: 18px;
+      line-height: 40px;
+      text-align: center;
+      padding: 15px;
+      box-sizing: border-box
+    }
+
+    .gjp-leftMenu .gjp-menu {
+      height: calc(100% - 70px);
+      overflow: auto
+    }
+
+    .gjp-leftMenu .gjp-menu .gjp-el-menu {
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      border-right: 0
+    }
+
+    .gjp-el-menu-item {
+      height: 56px;
+      padding: 30px 0 0 20px;
+    }
+
+    .gjp-el-menu-item-title {
+      width: 150px;
+      height: 15px;
+      background-color: #fff;
+      opacity: .7;
+    }
+
+    #app .gjp-rightDiv {
+      float: right;
+      width: calc(100% - 220px);
+      height: 100%
+    }
+
+    .gjp-header {
+      width: 100%;
+      height: 50px;
+      background-color: #fff;
+      box-sizing: border-box;
+      padding-left: 20px;
+      padding-right: 20px;
+      line-height: 50px
+    }
+
+    .gjp-header .gjp-caidanIco {
+      display: inline-block;
+      font-size: 18px;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none
+    }
+
+    .gjp-header .gjp-caidanIco i.gjp-caidan {
+      font-size: 18px
+    }
+
+    .gjp-header .gjp-headerRight {
+      float: right
+    }
+
+    .gjp-header .gjp-headerRight span {
+      padding-left: 7px
+    }
+
+    .gjp-header .gjp-headerRight i.gjp-tuichu {
+      color: #ff5353;
+      cursor: pointer
+    }
+
+    .gjp-header .gjp-headerRight i.gjp-gerenzhongxin {
+      font-weight: 700
+    }
+
+    .gjp-tabsMenu {
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      display: -ms-flexbox;
+      display: flex;
+      margin-top: 2px;
+      padding-left: 2px;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      box-sizing: border-box
+    }
+
+    .gjp-tabsMenu .gjp-tabsTitle {
+      color: #505050;
+      box-sizing: border-box;
+      border: 2px solid #e2e2e2;
+      border-top: 0;
+      border-radius: 3px;
+      background-color: #fff;
+      padding-left: 7px;
+      padding-right: 22px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      position: relative
+    }
+
+    .gjp-tabsMenu .gjp-action {
+      color: #fff;
+      background-color: #409eff
+    }
+
+    .gjp-tabsMenu .gjp-tianchong {
+      background-color: #fff;
+      height: 100%;
+      -ms-flex: 1;
+      flex: 1;
+      margin-left: 2px;
+      border-bottom: 2px solid #e2e2e2;
+      box-sizing: border-box
+    }
+
+    #app .gjp-rightDiv .gjp-contentDiv {
+      width: 100%;
+      height: calc(100% - 82px);
+      overflow-x: hidden;
+      overflow-y: auto;
+      box-sizing: border-box;
+      background-color: #fff;
+    }
+  </style>
+  <div class="gjp-leftDiv">
+    <div class="gjp-leftMenu">
+      <div class="gjp-logo">
+        <div><i class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i><i
+          class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i><i
+          class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i><i
+          class="iconfont icon-zhanwei"></i></div>
+      </div>
+      <div class="gjp-menu">
+        <ul class="gjp-el-menu">
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+          <li class="gjp-el-menu-item">
+            <div class="gjp-el-menu-item-title"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="gjp-rightDiv">
+    <div class="gjp-header">
+      <div class="gjp-caidanIco">
+          <span>
+            <span>
+              <span class="gjp-el-popover__reference" aria-describedby="el-popover-3297" tabindex="0">
+                <i class="iconfont icon-caidan gjp-caidan"> </i>
+                <i class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i>
+              </span>
+            </span>
+          </span>
+      </div>
+      <div class="gjp-headerRight">
+          <span>
+            <i class="iconfont icon-084tuichu gjp-tuichu"> </i>
+          </span>
+        <span>|</span>
+        <span>
+            <i class="iconfont icon-gerenzhongxin gjp-gerenzhongxin"> </i>
+            <i class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i><i
+          class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i><i
+          class="iconfont icon-zhanwei"></i>
+          </span>
+      </div>
+    </div>
+    <div class="gjp-tabsMenu">
+      <div class="gjp-tabsTitle gjp-action" style="padding-right: 7px;">
+          <span>
+            <i class="iconfont icon-zhanwei"></i><i class="iconfont icon-zhanwei"></i>
+          </span>
+      </div>
+      <div class="gjp-tianchong"></div>
+    </div>
+    <div class="gjp-contentDiv">
+      <h1>正在加载...</h1>
+    </div>
+  </div>
+</div>
 </body>
 
 </html>

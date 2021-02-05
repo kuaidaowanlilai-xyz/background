@@ -111,6 +111,9 @@ export default {
         this.$axios({
           url: `/music/musicDownload/${res.data.req.data.midurlinfo[0].purl}`,
           method: 'get',
+          params: {
+            fileName: `${row.songname}-${row.singer[0].name}`
+          },
           responseType: 'blob',//告诉服务器我们需要的响应格式
         }).then(res => {
           console.log('下载', res)
@@ -120,7 +123,7 @@ export default {
           let objectUrl = URL.createObjectURL(blob);  //生成一个url
           var downloadElement = document.createElement('a');
           downloadElement.href = objectUrl;
-          downloadElement.download = row.songname //下载的文件名
+          downloadElement.download = `${row.songname}-${row.singer[0].name}` //下载的文件名
           document.body.appendChild(downloadElement);
           downloadElement.click(); //点击下载
         }).catch(err => {
