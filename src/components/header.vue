@@ -57,8 +57,9 @@ export default {
         method: 'get'
       })
         .then((res) => {
-          console.log('userIP', res)
+          // console.log('userIP', res)
           this.userIP = res.data
+          sessionStorage.setItem('userIP', res.data)
         })
         .catch((err) => {
           console.log('userIP 错误', err)
