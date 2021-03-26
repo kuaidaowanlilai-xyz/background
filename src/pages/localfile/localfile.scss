@@ -1,0 +1,49 @@
+.localfile {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  .breadCrumbs {
+    width: 100%;
+    padding: 5px 10px;
+  }
+
+  .filelist {
+    width: 100%;
+    flex: 1;
+    overflow: auto;
+    //border-top: 1px solid #bfbfbf;
+
+    .fileItem {
+      width: 60px;
+      padding-bottom: 5px;
+      margin: 10px;
+      display: inline-block;
+      user-select: none;
+
+      .svgDom {
+        width: 100%;
+        font-size: 40px;
+        text-align: center;
+      }
+
+      .nameDom {
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+
+    .fileItem:hover {
+      background-color: #e5f3ff;
+    }
+  }
+
+  .footinfo {
+    color: #475d79;
+    font-size: 12px;
+    border-top: 1px solid #eee;
+    line-height: 20px;
+  }
+}
