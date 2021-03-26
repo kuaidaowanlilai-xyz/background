@@ -44,7 +44,7 @@ let routes = [
     name: 'imgManage',
     component: resolve => require(['@/pages/imgManage'], resolve),
     menuShow: true,
-    icon: 'iconfont icon-yuyinhecheng'
+    icon: 'iconfont icon-chakantupian'
   },
   {
     title: '视频管理',
@@ -52,7 +52,7 @@ let routes = [
     name: 'videoManage',
     component: resolve => require(['@/pages/videoManage'], resolve),
     menuShow: true,
-    icon: 'iconfont icon-yuyinhecheng'
+    icon: 'iconfont icon-shipinguanli'
   },
   {
     title: '聊天室',
@@ -60,15 +60,23 @@ let routes = [
     name: 'webSocket',
     component: resolve => require(['@/pages/webSocket'], resolve),
     menuShow: true,
-    icon: 'iconfont icon-yuyinhecheng'
+    icon: 'iconfont icon-chat'
   },
   {
-    title: '音乐',
+    title: '音乐爬取',
     path: '/music',
     name: 'music',
     component: resolve => require(['@/pages/music'], resolve),
     menuShow: true,
-    icon: 'iconfont icon-yuyinhecheng'
+    icon: 'iconfont icon-yinle'
+  },
+  {
+    title: '本地文件管理',
+    path: '/localfile',
+    name: 'localfile',
+    component: resolve => require(['@/pages/localfile'], resolve),
+    menuShow: true,
+    icon: 'iconfont icon-wenjianguanli'
   },
 ]
 
