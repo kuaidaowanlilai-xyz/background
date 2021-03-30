@@ -22,6 +22,7 @@
       margin: 10px;
       display: inline-block;
       user-select: none;
+      vertical-align: top;
 
       .svgDom {
         width: 100%;
@@ -32,6 +33,7 @@
       .nameDom {
         font-size: 12px;
         text-align: center;
+        word-break:break-all;
       }
     }
 

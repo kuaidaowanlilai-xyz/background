@@ -17,3 +17,16 @@ body,html,#app{
     font-size: 14px;
     color: #404040;
 }
+
+//常用滚动条样式
+*::-webkit-scrollbar{
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(0,0,0,0.2);
+}
+*::-webkit-scrollbar-track{
+  background-color: #fff;
+}
