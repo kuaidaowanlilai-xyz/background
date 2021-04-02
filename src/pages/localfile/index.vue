@@ -107,17 +107,17 @@ export default {
           // blob 转成 base64 时，会出现乱码，转成 blobUrl 不会乱码
           const blob = new Blob([res.data], {type: res.headers['content-type']})
           const blobUrl = window.URL.createObjectURL(blob)
-          const iframe = document.createElement('iframe')
-          iframe.src = blobUrl
-          let style = ` position: fixed;
-                        top: 0;
-                        left: 0;
-                        width: 50%;
-                        height: 50%;
-                        background-color: #fff;
-                        z-index: 2021;`
-          iframe.style = style
-          document.body.appendChild(iframe)
+          // const iframe = document.createElement('iframe')
+          // iframe.src = blobUrl
+          // let style = ` position: fixed;
+          //               top: 0;
+          //               left: 0;
+          //               width: 50%;
+          //               height: 50%;
+          //               background-color: #fff;
+          //               z-index: 2021;`
+          // iframe.style = style
+          // document.body.appendChild(iframe)
           window.open(blobUrl, 'new', 'location=no, toolbar=no')
 
         }
