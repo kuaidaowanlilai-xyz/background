@@ -94,7 +94,10 @@ export default {
         method: 'get'
       }
       if (pathType !== 'Directory') {
-        axiosObj.responseType = 'blob'
+        // axiosObj.responseType = 'blob'
+        window.open(`${window.location.origin}${this.$comjs.baseUrl === '/' ? '' : this.$comjs.baseUrl}${this.path}`, 'new', 'location=no, toolbar=no')
+        this.path = this.stagingPath
+        return
       }
       this.$axios(axiosObj).then((res) => {
         console.log('localfile', res)
