@@ -151,7 +151,7 @@ export default {
         let data = JSON.parse(res.data.slice(9, -1))
         this.listData = data.data.song.list
       }).catch(err => {
-        console.log('qqMusic搜索结果失败', err);
+        console.log('qqMusic搜索结果失败', err)
       })
     },
     //单曲数据查询 播放
@@ -173,18 +173,19 @@ export default {
         //调用获取歌词的函数 //备注：只有 video 标签渲染完毕后才能获取歌词再操作dom
         this.lyricFun(row.songmid)
       }).catch(err => {
-        console.log('qqMusic单曲数据查询失败', err);
+        console.log('qqMusic单曲数据查询失败', err)
       })
     },
     //获取歌词的函数
     lyricFun(songmid) {
       this.$axios({
         /*
-            备注：此处不是用的普通代理 ，
+            *> 备注：此处不是用的普通代理 ，
             此接口对 referer 做了限制，
-            所以在 webpack.dev.conf.js 文件里做了个转发伪造 referer
+            所以在 webpack.dev.conf.js 文件里做了个转发伪造 referer <*
+            上述的作废，node端已做处理了
         */
-        url: '/api/getDiscList',
+        url: '/music/lyrics',
         method: 'get',
         params: {
           songmid: songmid,
@@ -198,7 +199,7 @@ export default {
           this.scrollFun(res.data.lyric)
         })
       }).catch(err => {
-        console.log('获取歌词失败', err);
+        console.log('获取歌词失败', err)
       })
     },
     //歌词滚动函数
